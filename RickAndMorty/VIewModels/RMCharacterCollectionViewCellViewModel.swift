@@ -28,21 +28,12 @@ final class RMCharacterCollectionViewCellViewModel: Hashable, Equatable {
         return "Status: \(characterStatus.text)"
     }
     
-    public func fetchImage(complrtion: @escaping (Result<Data, Error>) -> Void) {
+    public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = characterImageUrl else {
-            complrtion(.failure(URLError(.badURL)))
+            completion(.failure(URLError(.badURL)))
             return
         }
-        
-        let request = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else {
-                complrtion(.failure(error ?? URLError(.badServerResponse)))
-                return
-            }
-            complrtion(.success(data))
-        }
-        task.resume()
+        RMImageLoader.shared.downloadImage(url, completion: completion)
     }
     
     //MARK: - Hashable

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE05866D29F8645B002AB8A9 /* RMImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05866C29F8645B002AB8A9 /* RMImageLoader.swift */; };
 		CE0CE56A29F46850005E5E66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE56929F46850005E5E66 /* AppDelegate.swift */; };
 		CE0CE56C29F46850005E5E66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE56B29F46850005E5E66 /* SceneDelegate.swift */; };
 		CE0CE56E29F46850005E5E66 /* RMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE56D29F46850005E5E66 /* RMTabBarController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE05866C29F8645B002AB8A9 /* RMImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMImageLoader.swift; sourceTree = "<group>"; };
 		CE0CE56629F46850005E5E66 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0CE56929F46850005E5E66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE0CE56B29F46850005E5E66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		CE0CE58129F46A02005E5E66 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CE05866C29F8645B002AB8A9 /* RMImageLoader.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				CE0CE59029F46E20005E5E66 /* RMEpisodeViewController.swift in Sources */,
 				CEA3590329F5599B00496124 /* Extensions.swift in Sources */,
 				CE0CE56A29F46850005E5E66 /* AppDelegate.swift in Sources */,
+				CE05866D29F8645B002AB8A9 /* RMImageLoader.swift in Sources */,
 				CE0CE56C29F46850005E5E66 /* SceneDelegate.swift in Sources */,
 				CE77B95929F5957E0010CC9D /* RMCharacterDetailViewViewModel.swift in Sources */,
 				CE0CE59229F46E2D005E5E66 /* RMSettingsViewController.swift in Sources */,

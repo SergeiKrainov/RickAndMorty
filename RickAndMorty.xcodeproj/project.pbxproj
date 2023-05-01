@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE04F6802A000F0C003CDE20 /* RMEpisodesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04F67F2A000F0C003CDE20 /* RMEpisodesDetailViewController.swift */; };
 		CE05866D29F8645B002AB8A9 /* RMImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05866C29F8645B002AB8A9 /* RMImageLoader.swift */; };
 		CE0CE56A29F46850005E5E66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE56929F46850005E5E66 /* AppDelegate.swift */; };
 		CE0CE56C29F46850005E5E66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CE56B29F46850005E5E66 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE04F67F2A000F0C003CDE20 /* RMEpisodesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEpisodesDetailViewController.swift; sourceTree = "<group>"; };
 		CE05866C29F8645B002AB8A9 /* RMImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMImageLoader.swift; sourceTree = "<group>"; };
 		CE0CE56629F46850005E5E66 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0CE56929F46850005E5E66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				CE77B95429F594660010CC9D /* RMCharacterDetailViewController.swift */,
+				CE04F67F2A000F0C003CDE20 /* RMEpisodesDetailViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				CE05866D29F8645B002AB8A9 /* RMImageLoader.swift in Sources */,
 				CE0CE56C29F46850005E5E66 /* SceneDelegate.swift in Sources */,
 				CE77B95929F5957E0010CC9D /* RMCharacterDetailViewViewModel.swift in Sources */,
+				CE04F6802A000F0C003CDE20 /* RMEpisodesDetailViewController.swift in Sources */,
 				CE0CE59229F46E2D005E5E66 /* RMSettingsViewController.swift in Sources */,
 				CE0CE59429F4775C005E5E66 /* RMService.swift in Sources */,
 				CE0CE58529F46AFF005E5E66 /* RMLocation.swift in Sources */,

@@ -79,17 +79,14 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
         switch sectionType {
         case .photo(let viewModel):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterPhotoCollectionViewCell.identifier, for: indexPath) as? RMCharacterPhotoCollectionViewCell else { fatalError() }
-            cell.backgroundColor = .systemPink
             cell.configure(with: viewModel)
             return cell
         case .information(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterInfoCollectionViewCell.identifier, for: indexPath) as? RMCharacterInfoCollectionViewCell else { fatalError() }
-            cell.backgroundColor = .systemBlue
             cell.configure(with: viewModels[indexPath.row])
             return cell
         case .episodes(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterEpisodeCollectionViewCell.identifier, for: indexPath) as? RMCharacterEpisodeCollectionViewCell else { fatalError() }
-            cell.backgroundColor = .systemGreen
             cell.configure(with: viewModels[indexPath.row])
             return cell
         }

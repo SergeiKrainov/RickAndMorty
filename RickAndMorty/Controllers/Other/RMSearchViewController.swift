@@ -9,6 +9,7 @@ import UIKit
 
 /// Configurable controller to search
 final class RMSearchViewController: UIViewController {
+    
     /// Configuration for search session
     struct Config {
         enum Types {
@@ -31,12 +32,15 @@ final class RMSearchViewController: UIViewController {
         let type: Types
     }
     
-    private let config: Config
+    private let viewModel: RMSearchViewViewModel
+    private let searchView: RMSearchView
     
     //MARK: - Init
     
     init(config: Config) {
-        self.config = config
+        let viewModel = RMSearchViewViewModel(config: config)
+        self.viewModel = viewModel
+        self.searchView = RMSearchView(frame: .zero, viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,8 +53,29 @@ final class RMSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = config.type.title
-        view.backgroundColor = .systemMint
+        title = viewModel.config.type.title
+        view.backgroundColor = .systemBackground
+        view.addSubview(searchView)
+        addConstraints()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search",
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(searchButtonTapped))
+    }
+    
+    @objc
+    private func searchButtonTapped() {
+        print("Search")
+    }
+    
+    private func addConstraints() {
+        NSLayoutConstraint.activate([
+            searchView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            searchView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            searchView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 
 }

@@ -7,11 +7,20 @@
 
 import UIKit
 
+protocol RMSearchViewDelegate: AnyObject {
+    func rmSearchView(_ searchView: RMSearchView,
+                      didSelectOption option: RMSearchInputViewViewModel.DynamicOptions)
+}
+
 final class RMSearchView: UIView {
+    
+    weak var delegate: RMSearchViewDelegate?
     
     private let viewModel: RMSearchViewViewModel
     
     //MARK: - SubViews
+    
+    private let searchView = RMSearchInputView()
     
     private let noResultView = RMNoSearchResultsView()
     
@@ -22,8 +31,11 @@ final class RMSearchView: UIView {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         translatesAutoresizingMaskIntoConstraints = false
-        addSubViews(noResultView)
+        addSubViews(noResultView, searchView)
         addConstraints()
+        
+        searchView.configure(with: .init(type: viewModel.config.type))
+        searchView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -32,11 +44,30 @@ final class RMSearchView: UIView {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
+            // searchView
+            searchView.topAnchor.constraint(equalTo: topAnchor),
+            searchView.leftAnchor.constraint(equalTo: leftAnchor),
+            searchView.rightAnchor.constraint(equalTo: rightAnchor),
+            searchView.heightAnchor.constraint(equalToConstant: viewModel.config.type == .episode ? 55 : 110),
+            
+            // noResult
             noResultView.widthAnchor.constraint(equalToConstant: 150),
             noResultView.heightAnchor.constraint(equalToConstant: 150),
             noResultView.centerXAnchor.constraint(equalTo: centerXAnchor),
             noResultView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+    }
+    
+    public func presentKeyBoard() {
+        searchView.presentKeyBoard()
+    }
+}
+
+//MARK: - RMSearchInputViewDelegate
+
+extension RMSearchView: RMSearchInputViewDelegate {
+    func rmSearchInputView(_ inputView: RMSearchInputView, didSelectOption option: RMSearchInputViewViewModel.DynamicOptions) {
+        delegate?.rmSearchView(self, didSelectOption: option)
     }
 }
 

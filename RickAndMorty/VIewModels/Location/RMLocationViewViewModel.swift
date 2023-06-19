@@ -26,7 +26,7 @@ final class RMLocationViewViewModel {
         }
     }
     
-    private var apiInfo: RMGetLocationResponse.Info?
+    private var apiInfo: RMGetAllLocationResponse.Info?
     
     public private(set) var cellViewModels: [RMLocationTableViewCellViewModel] = []
     
@@ -41,7 +41,7 @@ final class RMLocationViewViewModel {
     
     public func fetchLocations() {
         RMService.shared.execute(.listLocationRequest,
-                                 expecting: RMGetLocationResponse.self) { [weak self] result in
+                                 expecting: RMGetAllLocationResponse.self) { [weak self] result in
             switch result {
             case .success(let model):
                 self?.apiInfo = model.info

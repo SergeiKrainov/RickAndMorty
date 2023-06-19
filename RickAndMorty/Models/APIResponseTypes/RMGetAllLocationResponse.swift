@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RMGetLocationResponse: Codable {
+struct RMGetAllLocationResponse: Codable {
     struct Info: Codable {
         let count: Int
         let pages: Int

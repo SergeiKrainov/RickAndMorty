@@ -10,6 +10,8 @@ import UIKit
 protocol RMSearchViewDelegate: AnyObject {
     func rmSearchView(_ searchView: RMSearchView,
                       didSelectOption option: RMSearchInputViewViewModel.DynamicOptions)
+    func rmSearchView(_ searchView: RMSearchView,
+                      didSelectLocation location: RMLocation)
 }
 
 final class RMSearchView: UIView {
@@ -40,6 +42,7 @@ final class RMSearchView: UIView {
         searchView.delegate = self
         
         setUpHandlers(viewModel: viewModel)
+        resultsView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -95,7 +98,7 @@ final class RMSearchView: UIView {
     }
 }
 
-//MARK: - RMSearchInputViewDelegate
+    //MARK: - RMSearchInputViewDelegate
 
 extension RMSearchView: RMSearchInputViewDelegate {
     func rmSearchInputView(_ inputView: RMSearchInputView, didSelectOption option: RMSearchInputViewViewModel.DynamicOptions) {
@@ -111,7 +114,7 @@ extension RMSearchView: RMSearchInputViewDelegate {
     }
 }
 
-//MARK: - CollectionView
+    //MARK: - CollectionView
 
 extension RMSearchView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -125,5 +128,17 @@ extension RMSearchView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+    }
+}
+
+    //MARK: - RMSearchResultsViewDelegate
+
+extension RMSearchView: RMSearchResultsViewDelegate {
+    
+    func rmSearchResultsView(_ resultsView: RMSearchResultsView, didTapLocationAt index: Int) {
+        guard let locationModel = viewModel.locationSearchResult(at: index) else {
+            return
+        }
+        delegate?.rmSearchView(self, didSelectLocation: locationModel)
     }
 }
